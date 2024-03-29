@@ -23,12 +23,14 @@ def start(article):
     )
     #Enter text into the textarea
     textarea.send_keys(prompt1+article)
+
+    # click all buttons with the class of the popup
     button = driver.find_elements(By.CSS_SELECTOR, "button[class='md:hover:bg-offsetPlus text-textOff dark:text-textOffDark md:hover:text-textMain dark:md:hover:bg-offsetPlusDark  dark:md:hover:text-textMainDark font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-in-out font-sans  select-none items-center relative group/button  justify-center text-center items-center rounded-full cursor-point active:scale-95 origin-center whitespace-nowrap inline-flex text-sm aspect-square h-8']")
     for i in button:
         i.click()
 
 def initiate():
-    #close a popup
+    #close the popup (in case the other one doesn't work)
     while True:
         try:
             button = driver.find_element(By.CSS_SELECTOR, "button[class='md:hover:bg-offsetPlus text-textOff dark:text-textOffDark md:hover:text-textMain dark:md:hover:bg-offsetPlusDark  dark:md:hover:text-textMainDark font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-in-out font-sans  select-none items-center relative group/button  justify-center text-center items-center rounded-full cursor-point active:scale-95 origin-center whitespace-nowrap inline-flex text-sm aspect-square h-8']")
@@ -36,6 +38,7 @@ def initiate():
             break
         except:
             pass
+            
     #initiate conversation with first button click
     while True:
         try:
